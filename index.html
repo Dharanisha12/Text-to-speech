@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Text To Speak</title>
+</head>
+<style>
+    video{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+</style>
+<body>
+    <video autoplay muted loop>
+        <source src="WhatsApp Video 2024-03-28 at 8.16.28 PM.mp4" type="Video/mp4">
+    </video>
+    <div id="container">
+        <h2>Text To Speech</h2>
+        <textarea id="textTospeech"></textarea>
+        <button onclick="speak()">Text To Speak</button>
+    </div>
+
+    <script>
+       var speech=new SpeechSynthesisUtterance();
+
+       function speak(){
+        speech.text=textTospeech.value;
+
+        speech.rate=1;
+        speech.volume=1;
+        speech.pitch=1;
+
+        window.speechSynthesis.speak(speech);
+       }
+
+
+    </script>
+</body>
+</html>
